@@ -25,14 +25,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Login</title>
+    <title>Iniciar sesión</title>
+    <link rel="stylesheet" href="style.css">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #f0f2f5;
-            text-align: center;
-            padding: 50px;
-        }
         form {
             background: white;
             padding: 30px;
@@ -40,19 +35,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
         }
+
         input {
             margin: 10px;
             padding: 10px;
             width: 250px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
         }
-        button {
-            padding: 10px 20px;
-            background-color: #28a745;
-            color: white;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-        }
+
         .error {
             color: red;
             margin-top: 10px;
@@ -60,14 +51,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </style>
 </head>
 <body>
-    <h2>Iniciar sesión</h2>
+
+    <img src="gif/lapiz.gif" alt="Lápiz animado" class="header-img">
+
+    <div>
+        <button class="btn-title">Iniciar Sesión</button>
+    </div>
+
     <form method="POST">
         <input type="text" name="usuario" placeholder="Usuario" required><br>
         <input type="password" name="password" placeholder="Contraseña" required><br>
-        <button type="submit">Entrar</button>
+        <button class="btn-crear" type="submit">Entrar</button>
         <?php if ($error): ?>
             <div class="error"><?= $error ?></div>
         <?php endif; ?>
     </form>
+
 </body>
 </html>
+
