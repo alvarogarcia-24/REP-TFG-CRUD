@@ -5,3 +5,4 @@ $conn->query("DELETE FROM tareas WHERE id=$id");
 header("Location: index.php");
 exit();
 ?>
+
