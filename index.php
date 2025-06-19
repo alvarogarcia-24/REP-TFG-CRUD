@@ -18,23 +18,18 @@ $resultado = $conn->query("SELECT * FROM tareas ORDER BY id DESC");
 </head>
 <body>
 
-    <!-- Imagen decorativa -->
+    <button id="modo-oscuro-btn" class="modo-btn">Modo oscuro</button>
+    <a href="logout.php" class="logout-btn">Cerrar sesión</a>
     <img src="gif/lapiz.gif" alt="Icono lápiz animado" class="header-img">
 
-    <!-- Botón de cerrar sesión -->
-    <a href="logout.php" class="logout-btn">Cerrar sesión</a>
-
-    <!-- Título -->
     <div>
         <button class="btn-title">Lista de Tareas</button>
     </div>
 
-    <!-- Botón crear -->
     <div>
         <a href="crear.php" class="btn-crear">Crear Nueva Tarea</a>
     </div>
 
-    <!-- Tabla de tareas -->
     <table>
         <tr>
             <th>Título</th>
@@ -53,8 +48,24 @@ $resultado = $conn->query("SELECT * FROM tareas ORDER BY id DESC");
         <?php } ?>
     </table>
 
-<a href="logout.php" style="position: absolute; top: 20px; right: 30px; font-weight: bold; color: red;">Cerrar sesión</a>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const btn = document.getElementById('modo-oscuro-btn');
+            const body = document.body;
 
+            if (localStorage.getItem("modo") === "oscuro") {
+                body.classList.add("dark-mode");
+                btn.textContent = "Modo claro";
+            }
+
+            btn.addEventListener("click", () => {
+                body.classList.toggle("dark-mode");
+                const modo = body.classList.contains("dark-mode") ? "oscuro" : "claro";
+                localStorage.setItem("modo", modo);
+                btn.textContent = modo === "oscuro" ? "Modo claro" : "Modo oscuro";
+            });
+        });
+    </script>
 </body>
 </html>
 

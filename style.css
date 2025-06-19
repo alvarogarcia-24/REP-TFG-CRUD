@@ -1,4 +1,4 @@
-/* Estilos movidos desde index.php */
+
 body {
     font-family: 'Segoe UI', sans-serif;
     background: #e3f2fd;
@@ -84,4 +84,82 @@ td a:hover {
     font-weight: bold;
     color: red;
     text-decoration: none;
+}
+
+.modo-btn {
+    position: absolute;
+    top: 20px;
+    left: 30px;
+    padding: 10px 20px;
+    background-color: #444;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.modo-btn:hover {
+    background-color: #222;
+}
+
+
+.dark-mode {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+.dark-mode table {
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+}
+
+.dark-mode th {
+    background-color: #333;
+    color: white;
+}
+
+.dark-mode td a {
+    color: #90caf9;
+}
+
+.dark-mode .btn-title {
+    background-color: #00695c;
+}
+
+.dark-mode .btn-crear {
+    background-color: #1e88e5;
+}
+
+.dark-mode .btn-crear:hover {
+    background-color: #1565c0;
+}
+
+.formulario {
+    background: white;
+    padding: 30px;
+    display: inline-block;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    margin-top: 30px;
+}
+
+.formulario input,
+.formulario textarea {
+    margin: 10px;
+    padding: 10px;
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.dark-mode .formulario {
+    background-color: #1f1f1f;
+}
+
+.dark-mode .formulario input,
+.dark-mode .formulario textarea {
+    background-color: #2c2c2c;
+    color: white;
+    border: 1px solid #555;
 }

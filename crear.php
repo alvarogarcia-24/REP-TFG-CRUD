@@ -17,44 +17,36 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <title>Crear Tarea</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #f0f2f5;
-            text-align: center;
-            padding: 40px;
-        }
-        form {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            display: inline-block;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-        input, textarea {
-            width: 300px;
-            padding: 10px;
-            margin: 10px;
-        }
-        button {
-            background-color: #28a745;
-            color: white;
-            border: none;
-            padding: 12px 20px;
-            border-radius: 6px;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #218838;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Crear Nueva Tarea</h1>
-    <form method="POST">
+
+    <button id="modo-oscuro-btn" class="modo-btn">🌙 Modo oscuro</button>
+    <h1 class="btn-title">Crear Nueva Tarea</h1>
+
+    <form method="POST" class="formulario">
         <input type="text" name="titulo" placeholder="Título" required><br>
         <textarea name="descripcion" placeholder="Descripción" rows="4"></textarea><br>
-        <button type="submit">Guardar Tarea</button>
+        <button type="submit" class="btn-crear">Guardar Tarea</button>
     </form>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const btn = document.getElementById('modo-oscuro-btn');
+            const body = document.body;
+
+            if (localStorage.getItem("modo") === "oscuro") {
+                body.classList.add("dark-mode");
+                btn.textContent = "Modo claro";
+            }
+
+            btn.addEventListener("click", () => {
+                body.classList.toggle("dark-mode");
+                const modo = body.classList.contains("dark-mode") ? "oscuro" : "claro";
+                localStorage.setItem("modo", modo);
+                btn.textContent = modo === "oscuro" ? "Modo claro" : "Modo oscuro";
+            });
+        });
+    </script>
 </body>
 </html>
